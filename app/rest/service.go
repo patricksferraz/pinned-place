@@ -2,7 +2,7 @@ package rest
 
 import (
 	"github.com/asaskevich/govalidator"
-	"github.com/c-4u/place/domain/service"
+	"github.com/c-4u/pinned-place/domain/service"
 	"github.com/gofiber/fiber/v2"
 )
 

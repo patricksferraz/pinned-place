@@ -3,10 +3,10 @@ package service
 import (
 	"context"
 
-	"github.com/c-4u/place/domain/entity"
-	"github.com/c-4u/place/domain/repo"
-	"github.com/c-4u/place/infra/client/kafka/topic"
-	"github.com/c-4u/place/utils"
+	"github.com/c-4u/pinned-place/domain/entity"
+	"github.com/c-4u/pinned-place/domain/repo"
+	"github.com/c-4u/pinned-place/infra/client/kafka/topic"
+	"github.com/c-4u/pinned-place/utils"
 )
 
 type Service struct {
