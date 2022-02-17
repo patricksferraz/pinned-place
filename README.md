@@ -22,7 +22,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/c-4u/place">
+  <a href="https://github.com/c-4u/pinned-place">
     <img src="img/logo.png" alt="Logo" width="100" height="100">
   </a>
 
@@ -31,14 +31,14 @@
   <p align="center">
     Microservice for time recording
     <br />
-    <a href="https://github.com/c-4u/place"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/c-4u/pinned-place"><strong>Explore the docs »</strong></a>
     <!-- <br />
     <br />
-    <a href="https://github.com/c-4u/place">View Demo</a>
+    <a href="https://github.com/c-4u/pinned-place">View Demo</a>
     ·
-    <a href="https://github.com/c-4u/place">Report Bug</a>
+    <a href="https://github.com/c-4u/pinned-place">Report Bug</a>
     ·
-    <a href="https://github.com/c-4u/place">Request Feature</a>-->
+    <a href="https://github.com/c-4u/pinned-place">Request Feature</a>-->
   </p>
 </p>
 
@@ -114,7 +114,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/c-4u/place/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/c-4u/pinned-place/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -150,7 +150,7 @@ Any contributions you make are **greatly appreciated**.
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/c-4u/place.git
+   git clone https://github.com/c-4u/pinned-place.git
    ```
 
 2. Run
@@ -183,7 +183,7 @@ Any contributions you make are **greatly appreciated**.
 
 Coding4u - contato@coding4u.com.br - [website](http://coding4u.com.br)
 
-Project Link: [place](https://github.com/c-4u/place)
+Project Link: [place](https://github.com/c-4u/pinned-place)
 
 <!-- ACKNOWLEDGEMENTS -->
 <!-- ## Acknowledgements

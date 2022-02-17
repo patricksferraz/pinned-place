@@ -1,4 +1,4 @@
-module github.com/c-4u/place
+module github.com/c-4u/pinned-place
 
 go 1.17
 

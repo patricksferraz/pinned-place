@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: place
-        image: ghcr.io/c-4u/place
+        image: ghcr.io/c-4u/pinned-place
         ports:
         - name: rest
           containerPort: 8080
