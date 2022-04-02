@@ -11,26 +11,26 @@ import (
 )
 
 type Repository struct {
-	Pg *db.PostgreSQL
-	Kp *kafka.KafkaProducer
+	Orm *db.DbOrm
+	Kp  *kafka.KafkaProducer
 }
 
-func NewRepository(pg *db.PostgreSQL, kp *kafka.KafkaProducer) *Repository {
+func NewRepository(orm *db.DbOrm, kp *kafka.KafkaProducer) *Repository {
 	return &Repository{
-		Pg: pg,
-		Kp: kp,
+		Orm: orm,
+		Kp:  kp,
 	}
 }
 
 func (r *Repository) CreatePlace(ctx context.Context, place *entity.Place) error {
-	err := r.Pg.Db.Create(place).Error
+	err := r.Orm.Db.Create(place).Error
 	return err
 }
 
 func (r *Repository) FindPlace(ctx context.Context, placeID *string) (*entity.Place, error) {
 	var e entity.Place
 
-	r.Pg.Db.First(&e, "id = ?", *placeID)
+	r.Orm.Db.First(&e, "id = ?", *placeID)
 
 	if e.ID == nil {
 		return nil, fmt.Errorf("no place found")
@@ -40,8 +40,29 @@ func (r *Repository) FindPlace(ctx context.Context, placeID *string) (*entity.Pl
 }
 
 func (r *Repository) SavePlace(ctx context.Context, place *entity.Place) error {
-	err := r.Pg.Db.Save(place).Error
+	err := r.Orm.Db.Save(place).Error
 	return err
+}
+
+func (r *Repository) SearchPlaces(ctx context.Context, searchPlace *entity.SearchPlaces) ([]*entity.Place, *string, error) {
+	var e []*entity.Place
+
+	q := r.Orm.Db
+	if *searchPlace.PageToken != "" {
+		q = q.Where("token < ?", *searchPlace.PageToken)
+	}
+	err := q.Order("token DESC").
+		Limit(*searchPlace.PageSize).
+		Find(&e).Error
+	if err != nil {
+		return nil, nil, err
+	}
+
+	if len(e) < *searchPlace.PageSize {
+		return e, nil, nil
+	}
+
+	return e, e[len(e)-1].Token, nil
 }
 
 func (r *Repository) PublishEvent(ctx context.Context, topic, msg, key *string) error {

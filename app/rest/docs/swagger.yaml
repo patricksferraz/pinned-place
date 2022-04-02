@@ -27,6 +27,15 @@ definitions:
       updated_at:
         type: string
     type: object
+  rest.SearchPlacesResponse:
+    properties:
+      next_page_token:
+        type: string
+      places:
+        items:
+          $ref: '#/definitions/rest.Place'
+        type: array
+    type: object
 info:
   contact:
     email: contato@coding4u.com.br
@@ -37,6 +46,38 @@ info:
   version: "1.0"
 paths:
   /places:
+    get:
+      consumes:
+      - application/json
+      description: Router for search places
+      operationId: searchPlaces
+      parameters:
+      - description: page size
+        in: query
+        name: page_size
+        type: integer
+      - description: page token
+        in: query
+        name: page_token
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/rest.SearchPlacesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/rest.HTTPResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/rest.HTTPResponse'
+      summary: search places
+      tags:
+      - Place
     post:
       consumes:
       - application/json

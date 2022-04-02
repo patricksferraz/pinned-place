@@ -24,3 +24,13 @@ type Place struct {
 	Base `json:",inline"`
 	Name string `json:"name"`
 }
+
+type SearchPlacesRequest struct {
+	PageToken string `json:"page_token" query:"page_token"`
+	PageSize  int    `json:"page_size" query:"page_size"`
+}
+
+type SearchPlacesResponse struct {
+	Places        []*Place `json:"places"`
+	NextPageToken string   `json:"next_page_token"`
+}

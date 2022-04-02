@@ -1,20 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: place
+  name: place-v1
+  labels:
+    app: place
+    version: v1
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: place
+      version: v1
   template:
     metadata:
       labels:
         app: place
+        version: v1
     spec:
       containers:
       - name: place
         image: ghcr.io/c-4u/pinned-place
+        imagePullPolicy: IfNotPresent
         ports:
         - name: rest
           containerPort: 8080

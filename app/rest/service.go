@@ -70,3 +70,34 @@ func (t *RestService) FindPlace(c *fiber.Ctx) error {
 
 	return c.Status(fiber.StatusOK).JSON(place)
 }
+
+// SearchPlaces godoc
+// @Summary search places
+// @ID searchPlaces
+// @Tags Place
+// @Description Router for search places
+// @Accept json
+// @Produce json
+// @Param page_size query int false "page size"
+// @Param page_token query string false "page token"
+// @Success 200 {object} SearchPlacesResponse
+// @Failure 400 {object} HTTPResponse
+// @Failure 403 {object} HTTPResponse
+// @Router /places [get]
+func (t *RestService) SearchPlaces(c *fiber.Ctx) error {
+	var req SearchPlacesRequest
+
+	if err := c.QueryParser(&req); err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(HTTPResponse{Msg: err.Error()})
+	}
+
+	places, nextPageToken, err := t.Service.SearchPlaces(c.Context(), &req.PageToken, &req.PageSize)
+	if err != nil {
+		return c.Status(fiber.StatusForbidden).JSON(HTTPResponse{Msg: err.Error()})
+	}
+
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"places":          places,
+		"next_page_token": nextPageToken,
+	})
+}
