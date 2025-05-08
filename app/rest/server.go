@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"log"
 
-	_ "github.com/c-4u/pinned-place/app/rest/docs"
-	"github.com/c-4u/pinned-place/domain/service"
-	"github.com/c-4u/pinned-place/infra/client/kafka"
-	"github.com/c-4u/pinned-place/infra/db"
-	"github.com/c-4u/pinned-place/infra/repo"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	_ "github.com/patricksferraz/pinned-place/app/rest/docs"
+	"github.com/patricksferraz/pinned-place/domain/service"
+	"github.com/patricksferraz/pinned-place/infra/client/kafka"
+	"github.com/patricksferraz/pinned-place/infra/db"
+	"github.com/patricksferraz/pinned-place/infra/repo"
 	fiberSwagger "github.com/swaggo/fiber-swagger"
 )
 

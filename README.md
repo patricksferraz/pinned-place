@@ -1,193 +1,143 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
-***
-***
-***
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** github_username, repo_name, twitter_handle, email, project_title, project_description
--->
+# Pinned Place 🎯
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
+[![Go Report Card](https://goreportcard.com/badge/github.com/patricksferraz/pinned-place)](https://goreportcard.com/report/github.com/patricksferraz/pinned-place)
+[![GoDoc](https://godoc.org/github.com/patricksferraz/pinned-place?status.svg)](https://godoc.org/github.com/patricksferraz/pinned-place)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/c-4u/pinned-place">
-    <img src="img/logo.png" alt="Logo" width="100" height="100">
-  </a>
+A modern, scalable location-based service built with Go, designed to handle location data efficiently and reliably.
 
-  <h3 align="center">Place</h3>
+## 🌟 Features
 
-  <p align="center">
-    Microservice for time recording
-    <br />
-    <a href="https://github.com/c-4u/pinned-place"><strong>Explore the docs »</strong></a>
-    <!-- <br />
-    <br />
-    <a href="https://github.com/c-4u/pinned-place">View Demo</a>
-    ·
-    <a href="https://github.com/c-4u/pinned-place">Report Bug</a>
-    ·
-    <a href="https://github.com/c-4u/pinned-place">Request Feature</a>-->
-  </p>
-</p>
+- RESTful API for location management
+- PostgreSQL database for reliable data storage
+- Kafka integration for event streaming
+- Docker and Kubernetes support for easy deployment
+- Hot-reload development environment with Air
+- Comprehensive database migrations
+- Admin interface for database management
 
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <!-- <li><a href="#usage">Usage</a></li> -->
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <!-- <li><a href="#license">License</a></li> -->
-    <li><a href="#contact">Contact</a></li>
-    <!-- <li><a href="#acknowledgements">Acknowledgements</a></li> -->
-  </ol>
-</details>
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-Place is a microservice for pinned soluction providing in the application layer the communication by REST and gRPC.
-
-<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-<!--
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description` -->
-
-### Built With
-
-- [Go Lang](https://golang.org/)
-- List all: `go list -m all`
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-To get a local copy up and running follow these simple steps.
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Hiring a kubernetes cluster:
-  - [AWS](https://aws.amazon.com/pt/eks/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&eks-blogs.sort-by=item.additionalFields.createdDate&eks-blogs.sort-order=desc)
-  - [Azure](https://azure.microsoft.com/pt-br/services/kubernetes-service/)
-  - [GCP](https://cloud.google.com/kubernetes-engine)
+- Go 1.18+
+- Docker and Docker Compose
+- Make (optional, but recommended)
 
-- [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+### Environment Setup
 
-- Create a secrets: see "_k8s/instructions.md_"
+1. Clone the repository:
+```bash
+git clone https://github.com/patricksferraz/pinned-place.git
+cd pinned-place
+```
 
-### Deploy
+2. Copy the example environment file and configure it:
+```bash
+cp .env.example .env
+```
 
-- `kubectl apply -f ./k8s`
+3. Start the services using Docker Compose:
+```bash
+docker-compose up -d
+```
 
-<!-- USAGE EXAMPLES -->
-<!-- ## Usage
+### Development
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+The project uses Air for hot-reloading during development. To start the development server:
 
-_For more examples, please refer to the [Documentation](https://example.com)_ -->
+```bash
+make dev
+```
 
-<!-- ROADMAP -->
-## Roadmap
+## 🏗️ Project Structure
 
-See the [open issues](https://github.com/c-4u/pinned-place/issues) for a list of proposed features (and known issues).
+```
+.
+├── app/          # Application layer
+├── cmd/          # Command-line interface
+├── domain/       # Domain models and business logic
+├── infra/        # Infrastructure implementations
+├── k8s/          # Kubernetes configurations
+└── utils/        # Utility functions and helpers
+```
 
-<!-- CONTRIBUTING -->
-## Contributing
+## 🛠️ Technology Stack
 
-Any contributions you make are **greatly appreciated**.
+- **Language**: Go
+- **Database**: PostgreSQL
+- **Message Broker**: Kafka
+- **Containerization**: Docker
+- **Orchestration**: Kubernetes
+- **Development**: Air (hot-reload)
+- **Database Admin**: Adminer
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+## 📚 API Documentation
+
+The API documentation is available at `/swagger` when running the application.
+
+## 🔧 Configuration
+
+The application can be configured through environment variables:
+
+- `REST_PORT`: Port for the REST API
+- `POSTGRES_*`: PostgreSQL configuration
+- `KAFKA_*`: Kafka configuration
+- `DSN_*`: Data Source Name configuration
+
+See `.env.example` for all available configuration options.
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+make test
+```
+
+## 📦 Deployment
+
+### Docker
+
+Build and run using Docker:
+
+```bash
+make docker-build
+make docker-run
+```
+
+### Kubernetes
+
+Deploy to Kubernetes:
+
+```bash
+kubectl apply -f k8s/
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-**Prerequisites**:
+## 📄 License
 
-- Golang
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-  ```sh
-  wget https://golang.org/dl/go1.17.7.linux-amd64.tar.gz
-  rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.7.linux-amd64.tar.gz
-  export PATH=$PATH:/usr/local/go/bin
-  ```
+## 👥 Authors
 
-- Docker and docker-compose
+- **Patrick Ferraz** - *Initial work*
 
-  ```sh
-  sudo apt-get install docker docker-compose docker.io -y
-  ```
+## 🙏 Acknowledgments
 
-- Environment: see "_.env.example_"
+- Thanks to all contributors who have helped shape this project
+- Inspired by modern microservices architecture
+- Built with best practices in mind
 
-**Installation**:
+---
 
-1. Clone the repo
-
-   ```sh
-   git clone https://github.com/c-4u/pinned-place.git
-   ```
-
-2. Run
-
-   ```sh
-   make up
-   ```
-
-3. Test
-
-   ```sh
-   make gtest
-   ```
-
-**Installation in local kubernetes**:
-
-1. Install [k3d](https://k3d.io/), [Kind](https://kind.sigs.k8s.io/) or similar
-2. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) and [Helm](https://helm.sh/)
-3. Follow the steps of [Getting Started](#getting-started)
-    - Connect to cluster and run:
-
-      `kubectl apply -f k8s/`
-<!-- LICENSE -->
-<!-- ## License -->
-
-<!-- Distributed under the MIT License. See `LICENSE` for more information. -->
-
-<!-- CONTACT -->
-## Contact
-
-Coding4u - contato@coding4u.com.br - [website](http://coding4u.com.br)
-
-Project Link: [place](https://github.com/c-4u/pinned-place)
-
-<!-- ACKNOWLEDGEMENTS -->
-<!-- ## Acknowledgements
-
-* []()
-* []()
-* []() -->
+⭐ Star this repository if you find it useful!

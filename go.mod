@@ -1,4 +1,4 @@
-module github.com/c-4u/pinned-place
+module github.com/patricksferraz/pinned-place
 
 go 1.18
 

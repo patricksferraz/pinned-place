@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: place
-        image: ghcr.io/c-4u/pinned-place
+        image: ghcr.io/patricksferraz/pinned-place
         imagePullPolicy: IfNotPresent
         ports:
         - name: rest
